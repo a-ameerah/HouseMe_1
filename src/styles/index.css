@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-700: #0B5D3F;
+  --brand-600: #0E7350;
+  --brand-100: #E3F1EA;
+  --brand-50: #F3F8F5;
+  --bg: #FAFAF7;
+  --surface: #FFFFFF;
+  --ink-900: #14201B;
+  --ink-700: #34433C;
+  --ink-500: #5E6D66;
+  --line: #E4E8E5;
+  --warn: #B26A00;
+  --warn-bg: #FFF4DE;
+  --danger: #B42318;
+  --danger-bg: #FDECEA;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--ink-900);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* Accessibility focus ring */
+  *:focus-visible {
+    outline: 2px solid var(--brand-700);
+    outline-offset: 2px;
+  }
+}
+
+/* Custom hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle Shimmer for skeletons */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #E4E8E5 25%, #F3F8F5 50%, #E4E8E5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
